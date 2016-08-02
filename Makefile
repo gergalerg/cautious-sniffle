@@ -1,8 +1,8 @@
 GCC=g++
 CFLAGS=-g -v -Wall -std=c++14
 TARGET=main
-SOURCES:=main.cpp 
-#DEPS:=include/header.h
+SOURCES:=main.cpp vector.cpp
+DEPS:=include/vector.h
 # Math libraries
 # MATH:=-lm
 OBJECTS:=$(SOURCES:.cpp=.o)

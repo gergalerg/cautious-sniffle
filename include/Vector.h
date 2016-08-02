@@ -10,8 +10,8 @@ private:
     T* elem;
 public:
     Vector(int s) : sz{s}, elem{new T[s]{0} } {}
-    T& operator[](int i) { return elem[i]; }
-    int size() const { return sz; }
+    T& operator[](int );
+    int size() const;
 };
 
 #endif
