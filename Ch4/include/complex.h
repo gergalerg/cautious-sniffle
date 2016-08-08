@@ -21,7 +21,10 @@ public:
     Complex& operator*=(Complex);  // defined out of class somewhere
     Complex& operator/=(Complex);
 
-    Complex operator*(Complex<T> a, Complex<T> b) { return a*=b; }
+    Complex operator*(Complex<T> a) { return *this*=a; }
+
+    bool operator!=(Complex<T> a) { return !(*this == a); }
+    bool operator==(Complex<T> a) { return (*this == a); }
 
     template <typename U>
     friend std::ostream& operator<<(std::ostream& os, const Complex<U>& t);
