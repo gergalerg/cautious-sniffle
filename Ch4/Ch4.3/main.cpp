@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <initializer_list>
+#include <stdexcept>
 #include <list>
 
 template <typename T>
@@ -31,10 +32,17 @@ public:
     List_container(std::initializer_list<T> il) : ld(il), sz(il.size()) {}
     ~List_container() {}
 
-    T& operator[](int i) { return ; }
+    T& operator[](int);
     int size() const { return sz; }
 };
 
+template <typename T>
+T& List_container<T>::operator[](int i) { for (auto& x: ld) {
+    if (i == 0) return x;
+    --i;
+    }
+    throw std::out_of_range("List container");
+}
 template <typename T>
 void use(Container<T>& c) 
 {
@@ -52,6 +60,8 @@ int main(int argc, char const *argv[])
     std::initializer_list<int> lst2 {1,2,3,4,5,6,7,8,9,10};
     List_container<int> lc1(lst2);
     use(vc1);
+    std::cout << "\n";
+    use(lc1);
     std::cout << "\n";
     return 0;
 }
