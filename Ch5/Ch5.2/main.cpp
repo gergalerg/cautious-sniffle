@@ -2,6 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <vector>
+#include <string>
 #include "Vector.h"
 
 
@@ -45,33 +46,13 @@ void f(Vector<T>& v)
 
 }
 
-
-template <typename T>
-void light_speed(T speed) 
-{
-    const T local_speed = static_cast<const T>(speed);
-    const T C   = static_cast<const T>(299792.458);
-    const T local_max = static_cast<const T>( 160.0/(60*60) ); // 160 km/h == 160.0 / 60*60 km/s
-    static_assert(local_max < C, "Can't go that fast");
-    std::cout << "You're going << " << local_speed << "\n";
-}
 int main(int argc, char const *argv[])
 {
-    /*
     Vector<int> v1(10);
-    std::iota(&v1[0], &v1[9], 1);
-    v1[9] = 100;
-    std::cout << v1[9] << "\n";
-    std::cout << "Begin: " << v1.begin() << " end: " << v1.end() << "\n";
-    for (int i = 0; i < v1.size(); i++) {
-        std::cout << v1[i] << "\t";
-    }
-    f(v1);
-    */
-    light_speed(15000);
+    Vector<std::string> vs(32);
+    for (auto& x : vs) x = "A";
 
-
-
+    f2(vs);
     std::cout << "\n\n";
     return 0;
 }
