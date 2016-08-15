@@ -38,10 +38,10 @@ public:
     Smiley(Point p, int r) : Circle{p, r}, mouth{nullptr} {}
     ~Smiley();
 
-    void move(Point to){ Circle::move(to); }
+    void move(Point to) override { Circle::move(to); }
 
-    void draw() const {}
-    void rotate(int) {}
+    void draw() const override;
+    void rotate(int) override {}
 
     void add_eye(Shape* s) { eyes.push_back(s); }
     void set_mouth(Shape* s);
@@ -58,6 +58,13 @@ Smiley::~Smiley()
         delete p;
 }
 
+void Smiley::draw() const
+{
+    Circle::draw();
+    for (auto p : eyes)
+        p->draw();
+    mouth->draw();
+}
 template <typename T>
 void rotate_all(std::vector<T *>& v, int angle) 
 {

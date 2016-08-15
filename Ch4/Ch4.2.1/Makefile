@@ -1,8 +1,8 @@
 GCC=g++
-CFLAGS=-g -Wall -std=c++11
+CFLAGS=-g -v -Wall -std=c++14
 TARGET=main
 SOURCES:=main.cpp
-#DEPS:=include/complex.h
+DEPS:=include/complex.h
 # Math libraries
 # MATH:=-lm
 OBJECTS:=$(SOURCES:.cpp=.o)
@@ -16,7 +16,7 @@ all: $(OBJECTS)
 	@./main
 
 .PHONY:
-test:   test.o
+test: 
 	c++ -Iinclude -O3 $(CFLAGS) -DNDEBUG test.cpp  -o test
 
 .PHONY: clean
