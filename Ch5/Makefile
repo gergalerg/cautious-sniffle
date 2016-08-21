@@ -2,7 +2,7 @@ GCC=g++
 CFLAGS=-g -Wall -std=c++14
 TARGET=main
 SOURCES:=main.cpp
-DEPS:=include/complex.h
+DEPS:=include/header.h
 # Math libraries
 # MATH:=-lm
 OBJECTS:=$(SOURCES:.cpp=.o)
