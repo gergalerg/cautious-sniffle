@@ -1,19 +1,17 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
-void f() {}
+template <typename Key, typename Value>
+struct Map{
 
-static int count = 0;
+};
 
-template <typename T, typename... Tail>
-void f(T head, Tail... tail)
-{
-    count += 1;
-    std::cout << count << " : " << head << "\n";
-    f(tail...);
-}
+template <class Value>
+using String_map = Map<std::string, Value>;
 
 int main(int argc, char const *argv[])
 {
-    f(1, 3.0, "Nice one", 'c');
+    String_map<int> m;   
     return 0;
 }
